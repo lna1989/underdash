@@ -1,9 +1,10 @@
 class Underdash {
     /**
-     * Creates an array of elements split into groups the length of size. If array can't be split evenly, the final chunk will be the remaining elements.
+     * Creates an array of elements split into groups the length of size.
+     * If array can't be split evenly, the final chunk will be the remaining elements.
      * @param array
      * @param counter
-     * @returns array
+     * @returns {*[]}
      */
     static chunk(array = [], counter = 1) {
         return array.reduce((previousValue, currentValue, index) => {
@@ -14,9 +15,15 @@ class Underdash {
         }, []);
     }
 
+    /**
+     * Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
+     * @param array
+     * @returns {*[]}
+     */
+    static compact(array = []) {
+        return array.filter(Boolean);
+    }
+
     constructor() {
     }
 }
-
-console.log(Underdash.chunk(['abs', 'b', 'c', 'd', 'e', 'f'], 2));
-console.log(Underdash.chunk([], 2));
