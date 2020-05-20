@@ -21,7 +21,17 @@ class Underdash {
      * @returns {*[]}
      */
     static compact(array = []) {
-        return array.filter(Boolean);
+        return Array.isArray(array) ? array.filter(Boolean) : [];
+    }
+
+    /**
+     * Creates a new array concatenating array with any additional arrays and/or values.
+     * @param array
+     * @param values
+     * @returns {*[]}
+     */
+    static concat(array = [], ...values) {
+        return Array.isArray(array) ? array.concat(...values) : [].concat(...values);
     }
 
     constructor() {
