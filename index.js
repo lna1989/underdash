@@ -34,6 +34,26 @@ class Underdash {
         return Array.isArray(array) ? array.concat(...values) : [].concat(...values);
     }
 
+    /**
+     * Creates a slice of array with n elements dropped from the beginning.
+     * @param array
+     * @param count
+     * @returns {*[]}
+     */
+    static drop(array = [], count = 1) {
+        return array.slice(count);
+    }
+
+    /**
+     * Creates a slice of array with n elements dropped from the end.
+     * @param array
+     * @param count
+     * @returns {*[]}
+     */
+    static dropRight(array = [], count = 1) {
+        return array.slice(0, -count);
+    }
+
     constructor() {
     }
 }
