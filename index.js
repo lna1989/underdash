@@ -54,6 +54,19 @@ class Underdash {
         return array.slice(0, -count);
     }
 
+    /**
+     * Fills elements of array with value from start up to, but not including, end.
+     * @param array
+     * @param value
+     * @param startIndex
+     * @param endIndex
+     * @returns {*[]}
+     */
+    static fill(array, value = '', startIndex = 0, endIndex = array.length) {
+        return array.fill(value, startIndex, endIndex);
+    }
+
     constructor() {
     }
 }
+
