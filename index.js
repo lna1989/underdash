@@ -66,6 +66,26 @@ class Underdash {
         return array.fill(value, startIndex, endIndex);
     }
 
+    /**
+     * Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+     * @param array
+     * @param predicate
+     * @returns {*|number|bigint}
+     */
+    static find(array = [], predicate) {
+        return array.find(predicate);
+    }
+
+    /**
+     * Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.
+     * @param array
+     * @param predicate
+     * @returns {number}
+     */
+    static findIndex(array = [], predicate) {
+        return array.findIndex(predicate);
+    }
+
     constructor() {
     }
 }
