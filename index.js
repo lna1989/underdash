@@ -89,12 +89,25 @@ class Underdash {
     /**
      * Flattens array a single level deep.
      * @param array
-     * @returns {*[]}
+     * @returns {array}
      */
     static flatten(array) {
         return array.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
     }
 
+    /**
+     * Recursively flattens array.
+     * @param array
+     * @returns {array}
+     */
+    static flattenDeep(array) {
+        return Array.isArray(array)
+            ? array.reduce((accumulator, currentValue) => accumulator.concat(this.flattenDeep(currentValue)), [])
+            : [array];
+    }
+
     constructor() {
     }
 }
+
+console.log(Underdash.flattenDeep([1, [[2], [3, [4]], 5]]));
