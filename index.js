@@ -4,7 +4,7 @@ class Underdash {
      * If array can't be split evenly, the final chunk will be the remaining elements.
      * @param array
      * @param counter
-     * @returns {*[]}
+     * @returns {array}
      */
     static chunk(array = [], counter = 1) {
         return array.reduce((previousValue, currentValue, index) => {
@@ -18,7 +18,7 @@ class Underdash {
     /**
      * Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
      * @param array
-     * @returns {*[]}
+     * @returns {array}
      */
     static compact(array = []) {
         return Array.isArray(array) ? array.filter(Boolean) : [];
@@ -28,7 +28,7 @@ class Underdash {
      * Creates a new array concatenating array with any additional arrays and/or values.
      * @param array
      * @param values
-     * @returns {*[]}
+     * @returns {array}
      */
     static concat(array = [], ...values) {
         return Array.isArray(array) ? array.concat(...values) : [].concat(...values);
@@ -38,7 +38,7 @@ class Underdash {
      * Creates a slice of array with n elements dropped from the beginning.
      * @param array
      * @param count
-     * @returns {*[]}
+     * @returns {array}
      */
     static drop(array = [], count = 1) {
         return array.slice(count);
@@ -48,7 +48,7 @@ class Underdash {
      * Creates a slice of array with n elements dropped from the end.
      * @param array
      * @param count
-     * @returns {*[]}
+     * @returns {array}
      */
     static dropRight(array = [], count = 1) {
         return array.slice(0, -count);
@@ -60,7 +60,7 @@ class Underdash {
      * @param value
      * @param startIndex
      * @param endIndex
-     * @returns {*[]}
+     * @returns {array}
      */
     static fill(array, value = '', startIndex = 0, endIndex = array.length) {
         return array.fill(value, startIndex, endIndex);
@@ -70,7 +70,7 @@ class Underdash {
      * Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
      * @param array
      * @param predicate
-     * @returns {*|number|bigint}
+     * @returns {*}
      */
     static find(array = [], predicate) {
         return array.find(predicate);
@@ -86,7 +86,15 @@ class Underdash {
         return array.findIndex(predicate);
     }
 
+    /**
+     * Flattens array a single level deep.
+     * @param array
+     * @returns {*[]}
+     */
+    static flatten(array) {
+        return array.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+    }
+
     constructor() {
     }
 }
-
